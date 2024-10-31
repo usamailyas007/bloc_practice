@@ -20,7 +20,7 @@ class _ListExampleState extends State<ListExample> {
         child: const Icon(Icons.add),
         onPressed: () {
           for(int i = 0;i < 5;i++){
-            context.read<ListBloc>().add(AddListEvent(task: "Task"));
+            context.read<ListBloc>().add(const AddListEvent(task: "Task"));
           }
       },),
       body: BlocBuilder<ListBloc, ListState>(
@@ -33,13 +33,13 @@ class _ListExampleState extends State<ListExample> {
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return ListTile(
-                  leading: Text(index.toString(),style: TextStyle(fontSize: 14),),
+                  leading: Text(index.toString(),style: const TextStyle(fontSize: 14),),
                   title: Text(state.favouriteList[index]),
                   trailing: InkWell(
                     onTap: (){
                       context.read<ListBloc>().add(RemoveListEvent(task: state.favouriteList[index]));
                     },
-                      child: Icon(Icons.delete)),
+                      child: const Icon(Icons.delete)),
                 );
               },);
           } else{

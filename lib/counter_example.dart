@@ -6,6 +6,8 @@ import 'package:bloc_practice/switch_example.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'favourite_app.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -51,7 +53,16 @@ class _MyHomePageState extends State<MyHomePage> {
             },
                 child: const Text(
                     'Next'
-                ))
+                )),
+            const SizedBox(
+              height: 50,
+            ),
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const FavouriteApp(),));
+            },
+                child: const Text(
+                    'Favourite Example'
+                )),
           ],
         ),
       ),
